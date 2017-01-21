@@ -1,7 +1,7 @@
 # 1063-DS-Allard
 
-Brice Allard /s/s
-briceallard@gmail.com /s/s
+Brice Allard
+briceallard@gmail.com
 (806)231-7258
 
 ![Brice Allard](/bricePic.jpg)
