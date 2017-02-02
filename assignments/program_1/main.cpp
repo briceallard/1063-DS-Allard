@@ -3,7 +3,7 @@
 * @Author: Brice Allard
 * @Description:
 *     This program reads in images stored as rgb values in a
-*			space delimited file format.
+*     space delimited file format.
 * @Course: 1063 Data Structures
 * @Semester: Spring 2017
 * @Date: 30 01 2017
@@ -25,7 +25,7 @@ struct rgb {
 * @FunctionName: flipVert
 * @Description:
 *     Loops through a 2D array and flips the rows of array in order to manipulate
-*			the output to obtain a vertical flip of the original input.
+*	the output to obtain a vertical flip of the original input.
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
@@ -49,7 +49,7 @@ void flipVert(rgb** image, int width, int height) {
 * @FunctionName: flipHorz
 * @Description:
 *     Loops through a 2D array and flips the columns of array in order to manipulate
-*			the output to obtain a horizontal flip of the original input.
+*	the output to obtain a horizontal flip of the original input.
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
@@ -73,7 +73,7 @@ void flipHorz(rgb** image, int width, int height) {
 * @FunctionName: grayScale
 * @Description:
 *     Loops through a 2D array and turns every RGB value into its 
-*			grayscale equivalent.
+*	grayscale equivalent.
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
@@ -97,9 +97,9 @@ void grayScale(rgb** image, int width, int height) {
 /**
 * @FunctionName: main	
 * @Description:
-*		 Initialized the read in from input.txt and offers the user a menu to
-*		 choose which way they would like the manipulate the input.txt
-*		 then saves results to output.txt.
+*	Initialized the read in from input.txt and offers the user a menu to
+*	 choose which way they would like the manipulate the input.txt
+*	 then saves results to output.txt.
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
@@ -108,21 +108,21 @@ void grayScale(rgb** image, int width, int height) {
 *    void
 */
 int main() {
-	ifstream ifile;			// input & output files
+	ifstream ifile;		// input & output files
 	ofstream ofile;
 
 	ifile.open("input.txt");
 	ofile.open("output.txt");
 
-	int width;				// width of image
-	int height;				// height of image
+	int width;		// width of image
+	int height;		// height of image
 	int selection;
 
-	rgb **imgArray;			// Point var for our 2D Array
+	rgb **imgArray;		// Point var for our 2D Array
 
 	ifile >> width >> height;	//Read in width and height from top of input file
-								// We need this so we can make the Array the right
-								// size.
+					// We need this so we can make the Array the right
+					// size.
 
 	imgArray = new rgb*[height];	// This array points to every row.
 
