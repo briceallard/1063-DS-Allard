@@ -1,4 +1,3 @@
- ''' 
 /**
 * @ProgramName: Program-1
 * @Author: Brice Allard
@@ -176,4 +175,3 @@ int main() {
 
 	return 0;
 }
- ''' 
