@@ -41,8 +41,8 @@ public:
 		ifile.open(input_file);
 
 		ifile >> width >> height;	//Read in width and height from top of input file
-															// We need this so we can make the Array the right
-															// size.
+						// We need this so we can make the Array the right
+						// size.
 
 		image = new rgb*[height];	// This array points to every row.
 
@@ -148,13 +148,13 @@ public:
 	* @FunctionName: printImage
 	* @Description:
 	*     Loops through a 2D array and prints new integers to output.txt
-	*			which are the new variables for the changes made to image by
-	*			the user.
+	*	which are the new variables for the changes made to image by
+	*	the user.
 	* @Params:
 	*     rgb** image - 2D array holding rgb values
 	*     int width - width of image
 	*     int height - height of image
-	*			ofstream outfile - output of new RGB's
+	*	ofstream outfile - output of new RGB's
 	* @Returns:
 	*    void
 	*/
@@ -178,9 +178,9 @@ public:
 /**
 * @FunctionName: main
 * @Description:
-*		 Initialized the read in from input.txt and offers the user a menu to
-*		 choose which way they would like the manipulate the input.txt
-*		 then saves results to output.txt.
+*	Initialized the read in from input.txt and offers the user a menu to
+*	choose which way they would like the manipulate the input.txt
+*	then saves results to output.txt.
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
