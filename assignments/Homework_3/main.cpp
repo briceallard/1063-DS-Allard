@@ -4,11 +4,17 @@
 using namespace std;
 
 int main() {
-	srand(93487);
+	srand(5645646);
 	DBList List1;
 	DBList List2;
 
-	for (int i = 0; i<10; i++){
+	for (int i = 0; i < 10; i++) {
+		List1.InsertInOrder(rand() % 100);
+	}
+	List1.Print();
+	cout << endl;
+	/*
+	for (int i = 0; i<10; i++) {
 		List1.InsertFront(i);
 	}
 
@@ -16,7 +22,7 @@ int main() {
 
 	cout << endl;
 
-	for (int i = 0; i<10; i++){
+	for (int i = 0; i<10; i++) {
 		List2.InsertRear(i);
 	}
 
@@ -30,5 +36,5 @@ int main() {
 	List2.Delete(5);
 	cout << endl;
 	List2.Print();
-
+	*/
 }
