@@ -3,4 +3,4 @@ Brice Allard<br/>
 
 Circular Queue w/ Print<br/>
 
-<img src="/assignments/Homework_4/results.jpg" alt="results" width="600" height="460" />
+<img src="/assignments/Homework_4/results.jpg" alt="results" width="800" height="800" />
