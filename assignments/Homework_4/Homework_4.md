@@ -1,3 +1,5 @@
+~~~cpp
+
 /**
 * @Homework: Homework-4
 * @Author: Brice Allard
@@ -30,3 +32,4 @@ void Print(){
   }
   cout<<endl;  
 }
+~~~
