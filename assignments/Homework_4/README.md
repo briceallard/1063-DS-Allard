@@ -1,6 +1,6 @@
-Brice Allard
-1063 - Data Structs
+Brice Allard<br/>
+1063 - Data Structs<br/>
 
-Circular Queue w/ Print
+Circular Queue w/ Print<br/>
 
 ![Results](/results.jpg)
