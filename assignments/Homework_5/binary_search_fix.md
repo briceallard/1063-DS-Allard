@@ -25,7 +25,8 @@ int BinarySearch(int* data, int key, int size) {
 		else if (middle == left || middle == right) {
 			cout << "Not Found!" << endl;
 			found = false;
-			return -1;    // This is the fix!!!!!!!!
+			// This is the FIX!!
+			return -1;    // Or break; 
 		}
 		else {
 			if (key < data[middle]) {
