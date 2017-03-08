@@ -1,5 +1,3 @@
-~~~cpp
-
 /**
 * @FunctionName: BinarySearch
 * @Description:
@@ -43,4 +41,3 @@ int BinarySearch(int* data, int key, int size) {
 
 	return -1;
 }
-~~~
