@@ -1,3 +1,14 @@
+/**
+* @Homework: program_3
+* @Author: Brice Allard
+* @Description:
+*     Program to convert and equation given in prefix notation to postfix 
+		and calculate the answer to the problem
+* @Course: 1063 Data Structures
+* @Semester: Spring 2017
+* @Date: 29 02 2017
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -18,6 +29,16 @@ private:
 	int Size;
 	string infix;
 	string postfix;
+
+	/**
+	* @FunctionName: InfixToPostfix
+	* @Description:
+	*     Converts the equation to postfix notation
+	* @Params:
+	*    NONE	
+	* @Returns:
+	*    NONE
+	*/
 
 	void InfixToPostfix() {
 		S->push('(');
@@ -46,11 +67,21 @@ private:
 					}
 					S->push(infix[i]);
 				}
-				
+
 			}
 			Q->Push(S->pop());
 		}
 	}
+
+	/**
+	* @FunctionName: EvaluatePostfix
+	* @Description:
+	*     Solves the equation
+	* @Params:
+	*    None
+	* @Returns:
+	*    NONE
+	*/
 
 	int EvaluatePostfix() {
 		int x, y, result = 0;
@@ -89,6 +120,16 @@ public:
 		postfix = "";
 	}
 
+	/**
+	* @FunctionName: ProcessExpression
+	* @Description:
+	*     Creates stack and queue and outputs answer	
+	* @Params:
+	*    String Exp
+	* @Returns:
+	*    Answer	
+	*/
+
 	int ProcessExpression(string exp) {
 		int answer = 0;
 		Q = new Queue(exp.length() + 2);
@@ -104,12 +145,33 @@ public:
 		return answer;
 	}
 
+	/**
+	* @FunctionName: IsOperator
+	* @Description:
+	*     Determines if the character is an Operator	
+	* @Params:
+	*    Char C
+	* @Returns:
+	*    True or False
+	*/
+
 	bool IsOperator(char c) {
 		if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^')
 			return true;
 		else
 			return false;
 	}
+
+	/**
+	* @FunctionName: OperatorWeight
+	* @Description:
+	*     Determines the weight of the operator to decide which should be completed
+			first
+	* @Params:
+	*    char c
+	* @Returns:
+	*    weight
+	*/
 
 	int OperatorWeight(char c) {
 		int weight = -1;
@@ -134,13 +196,23 @@ public:
 		return weight;
 	}
 
+	/**
+	* @FunctionName: Precedence
+	* @Description:
+	*     If multiple Operators, determines which has precedence.
+	* @Params:
+	*    char op1, char op2
+	* @Returns:
+	*    true or false
+	*/
+
 	int Precedence(char op1, char op2)	{
 		int op1Weight = OperatorWeight(op1);
 		int op2Weight = OperatorWeight(op2);
 
 		if (op1Weight == op2Weight)
 			return true;
- 
+
 		return op1Weight > op2Weight ? true : false;
 	}
 };
