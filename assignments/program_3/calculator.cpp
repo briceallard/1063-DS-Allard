@@ -1,14 +1,3 @@
-/**
-* @Homework: program_3
-* @Author: Brice Allard
-* @Description:
-*     Program to convert and equation given in prefix notation to postfix 
-		and calculate the answer to the problem
-* @Course: 1063 Data Structures
-* @Semester: Spring 2017
-* @Date: 29 02 2017
-*/
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -30,28 +19,19 @@ private:
 	string infix;
 	string postfix;
 
-	/**
-	* @FunctionName: InfixToPostfix
-	* @Description:
-	*     Converts the equation to postfix notation
-	* @Params:
-	*    NONE	
-	* @Returns:
-	*    NONE
-	*/
-
 	void InfixToPostfix() {
 		S->push('(');
 		infix += ')';
 
-		while (!S->empty()) {
+		//while (!S->empty()) {
 			//S->printStack();
 			for (int i = 0; i < infix.length(); i++) {
-				//cout << infix[i] << endl;
+				//cout << "Infix[i] = " << infix[i] << endl;
+
 				if (infix[i] == ' ')
 					continue;
 				else if (isdigit(infix[i])) {
-					Q->Push(S->pop());
+					Q->Push(infix[i]);
 				}
 				else if (infix[i] == '(') {
 					S->push(infix[i]);
@@ -62,26 +42,17 @@ private:
 					}
 				}
 				else if (IsOperator(infix[i])) {
-					while (S->top != '(' && Precedence(S->top, infix[i])) {
+					while (S->Peek() != '(' && Precedence(S->Peek(), infix[i])) {
 						Q->Push(S->pop());
 					}
 					S->push(infix[i]);
 				}
-
+				//cout << "Queue = ";
+				//Q->PrintQueue();
+				//cout << "Stack = ";
+				//S->printStack();
 			}
-			Q->Push(S->pop());
-		}
 	}
-
-	/**
-	* @FunctionName: EvaluatePostfix
-	* @Description:
-	*     Solves the equation
-	* @Params:
-	*    None
-	* @Returns:
-	*    NONE
-	*/
 
 	int EvaluatePostfix() {
 		int x, y, result = 0;
@@ -90,9 +61,8 @@ private:
 			char temp = Q->Pop();
 
 			if (isdigit(temp))
-				ans->push(temp);
-
-			if (IsOperator(temp)) {
+				ans->push(temp - 48);
+			else if (IsOperator(temp)) {
 				x = ans->pop();
 				y = ans->pop();
 
@@ -108,6 +78,7 @@ private:
 					result = y + x;
 				else if (temp == '-')
 					result = y - x;
+				ans->push(result);
 			}
 		}
 		return result;
@@ -119,16 +90,6 @@ public:
 		infix = "";
 		postfix = "";
 	}
-
-	/**
-	* @FunctionName: ProcessExpression
-	* @Description:
-	*     Creates stack and queue and outputs answer	
-	* @Params:
-	*    String Exp
-	* @Returns:
-	*    Answer	
-	*/
 
 	int ProcessExpression(string exp) {
 		int answer = 0;
@@ -145,33 +106,15 @@ public:
 		return answer;
 	}
 
-	/**
-	* @FunctionName: IsOperator
-	* @Description:
-	*     Determines if the character is an Operator	
-	* @Params:
-	*    Char C
-	* @Returns:
-	*    True or False
-	*/
-
 	bool IsOperator(char c) {
-		if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^')
+		char temp = c;
+
+		if (temp == '+' || temp == '-' || temp == '*' || 
+			temp == '/' || temp == '%' || temp == '^')
 			return true;
 		else
 			return false;
 	}
-
-	/**
-	* @FunctionName: OperatorWeight
-	* @Description:
-	*     Determines the weight of the operator to decide which should be completed
-			first
-	* @Params:
-	*    char c
-	* @Returns:
-	*    weight
-	*/
 
 	int OperatorWeight(char c) {
 		int weight = -1;
@@ -191,29 +134,39 @@ public:
 			break;
 		default:
 			weight = -1;
+			//cout << "Stack Error: No case found for weight!" << endl;
 			break;
 		}
 		return weight;
 	}
 
-	/**
-	* @FunctionName: Precedence
-	* @Description:
-	*     If multiple Operators, determines which has precedence.
-	* @Params:
-	*    char op1, char op2
-	* @Returns:
-	*    true or false
-	*/
+	bool Precedence(char op1, char op2)	{
+		//cout << "Precedence was CALLED!!!!!" << endl;
+		//cout << "op1 = " << op1 << endl;
+		//cout << "op2 = " << op2 << endl;
 
-	int Precedence(char op1, char op2)	{
 		int op1Weight = OperatorWeight(op1);
 		int op2Weight = OperatorWeight(op2);
 
-		if (op1Weight == op2Weight)
-			return true;
+		//cout << "op1Weight = " << op1Weight << endl;
+		//cout << "op2Weight = " << op2Weight << endl;
 
-		return op1Weight > op2Weight ? true : false;
+		if (op1Weight == op2Weight) {
+			//cout << "Returned true = EQUAL" << endl;
+			return true;
+		}
+		else if (op1Weight > op2Weight) {
+			//cout << "Returned true = GREATER" << endl;
+			return true;
+		}
+		else if (op1Weight < op2Weight) {
+			//cout << "Returned false = LESSER" << endl;
+			return false;
+		}
+		//else
+		//	cout << "You got fucked!!!" << endl;
+ 
+		//return op1Weight > op2Weight ? true : false;
 	}
 };
 
