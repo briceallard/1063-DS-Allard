@@ -2,9 +2,9 @@
 * @ProgramName: Program-4
 * @Author: Brice Allard
 * @Description:
-*     		Game of Life uses a 2d array of values to represent "life" in a given cell.
-*		Certain rules are applied to determine whether life continues or death occurs.
-*		These rules are as follows:
+*     	Game of Life uses a 2d array of values to represent "life" in a given cell.
+*	Certain rules are applied to determine whether life continues or death occurs.
+*	These rules are as follows:
 *
 *		1. Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
 *		2. Any live cell with two or three live neighbours lives on to the next generation.
