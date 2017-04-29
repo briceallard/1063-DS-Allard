@@ -2,7 +2,7 @@
 * @ProgramName: Program-4
 * @Author: Brice Allard
 * @Description:
-*     Game of Life uses a 2d array of values to represent "life" in a given cell.
+*     		Game of Life uses a 2d array of values to represent "life" in a given cell.
 *		Certain rules are applied to determine whether life continues or death occurs.
 *		These rules are as follows:
 *
