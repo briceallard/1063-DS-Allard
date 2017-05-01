@@ -1,4 +1,3 @@
-```cpp
 /**
 * @ProgramName: Program-4
 * @Author: Brice Allard
@@ -543,4 +542,3 @@ int main() {
 
 	return 0;
 }
-```
