@@ -420,7 +420,7 @@ int main() {
 	//  uncomment the following lines below.....                  //
 	////////////////////////////////////////////////////////////////
 
-	// GameOfLife G("filename_here");
+	// GameOfLife G("gen_one.txt");
 	// G.RunEndless(10000,150);
 
 	// End of uncommented lines for testing purposes
