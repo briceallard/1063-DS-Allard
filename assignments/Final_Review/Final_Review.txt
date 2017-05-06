@@ -1,0 +1,375 @@
+
+//////////////////////////////////////////////////////////////
+//															//
+//						Pointers							//
+//															//
+//////////////////////////////////////////////////////////////
+
+cout << &D			=	4000
+cout << &E			=	5000
+cout << *D			=	42
+cout << *F			=	73
+cout << F			=	1000
+cout << A			=	73
+cout << *E			=	Error
+cout << &G			=	7000
+C = &A; cout << *C	=	73	(This one is tricky. Look at it closely)
+*F = *D; cout << *F	=	42
+
+//////////////////////////////////////////////////////////////
+//															//
+//							Arrays							//
+//															//
+//////////////////////////////////////////////////////////////
+
+Write functions to do the following to an array:
+
+	- Sum integer values
+		- Recieves array, its size, and returns the sum of the values.
+	
+		int sum(int array[], int size){
+			int sum = 0;
+		
+			while (int i = 0, i < size, i++) {
+				sum = sum + array[i];
+			}
+			return sum;
+		}
+		
+	- Avg integer Values
+		- Recieves array, its size, and returns the avg of the values
+		
+		int avg(int array[], int size) {
+			int sum = 0;
+			
+			while (int i = 0, i < size, i++) {
+				sum = sum + array[i];
+			}
+			avg = sum / size;
+			return avg;
+		}
+		
+	- Max Integer
+		- Recieves array, its size, and returns the maximum value in the array
+		
+		int Max(int array[], int size) {
+			int max = 0;
+			
+			while (int i = 0, i < size, i++) {
+				if (array[i] > max)
+					max = array[i];
+			}
+			return max;
+		}
+		
+	- Count occurences of a specified string in an array
+		- Recieves an array of words, a key to search for, and returns the 
+			number of times that key occurs in the array.
+			
+		int occurences(string array[], string key, int size) {
+			int occ = 0;
+			
+			while (int i = 0, i < size, i++) {
+				if(array[i] == key)
+					occ++;
+			}
+			return occ;
+		}
+		
+//////////////////////////////////////////////////////////////
+//															//
+//							Lists							//
+//															//
+//////////////////////////////////////////////////////////////
+
+What is the worst case search time for a singly linked list?
+	- O(n)
+Discuss what advantages/disadvantages a doubly linked list would have for:
+	1. Advantages
+		- Allows traversal forwards and backwards
+		- Delete operation is more efficient if pointer to the node to be deleted is given.
+	2. Disadvantages
+		- Every node requires extra space for previous pointer.
+		- Harder to impliment
+
+Write a C++ function that will return the largest and smallest values from any given list
+	
+	int big (struct node *head) {
+		int max = head->data;
+		
+		if (head == NULL) {
+			cout << "Invalid" << endl;
+			return -1;
+		}
+		
+		while {head != NULL) {
+			if(head->data > max)
+				max = head->data;
+				
+			head = head->next;
+		}
+		return max
+	}
+	
+	int small (struct node *head) {
+		int min = head->data;
+		
+		if(head = NULL)) {
+			cout << "Invalid" << endl;
+			return -1;
+		}
+		
+		while (head != NULL) {
+			if (head->data < min)
+				min = head->data;
+				
+			head = head->next;
+		}
+		return min;
+	}
+	
+Write a function to merge two linked lists of integers that are sorted into ascending order. The
+result should be a third linked list that is the sorted combination of the original lists. Do not
+destroy the original lists. Do not assume you have a class with methods to complete this problem.
+
+	struct node* mergeLists(struct node* list1, struct node* list2) {
+		struct node* list3 = NULL;
+		
+		if(list1 == NULL)
+			return list2;
+		else if(list2 == NULL;
+			return list1;
+			
+		if (list1->data <= list2->data) {
+			list3 = list1;
+			list3->next = mergeLists(list1->next, list2);
+		} else {
+			list3 = list2;
+			list3->next = mergeLists(list1,list2->next);
+		}
+		
+		return list3;		
+	}
+	
+Write a Count() function that counts the number of times a given int occurs in a list.
+
+	int Count(int val) {
+		int count = 0;
+		
+		if(head = NULL) {
+			cout << "Invalid" << endl;
+			return -1;
+		}
+		
+		while (head != NULL) {
+			if (head == val)
+				count++;
+				
+			head = head->next;
+		}
+		return count;
+	}
+	
+Write a Remove() function that removes the front node from a linked list. Pop takes a non-empty list,
+deletes the head node, and returns the head node's data.
+
+	int Remove() {
+		int Data;
+		
+		if (head != NULL) {
+			Node *temp = new node;
+			temp = head;
+			head = head->next;
+			Data = temp;
+			delete(temp);
+		}
+		return Data;
+	}
+
+//////////////////////////////////////////////////////////////
+//															//
+//						SEARCHING							//
+//															//
+//////////////////////////////////////////////////////////////
+
+Assumes Array (Call it Data) is in order
+
+int Search(int key){
+	int left = 0;
+	int right = size - 1;
+	int middle = (left+right) / 2;
+	bool found = false;
+	
+	while(!found){
+		if(Data[middle] == key){
+			return middle;
+		} else if (middle == left || middle == right) {
+			cout << "Key Not Found!" << endl;
+			return -1;
+		} else {
+			if (key < Data[middle])
+				right = middle;
+			else
+				left = middle;
+		}
+		middle = (left + right) / 2;
+	}
+	return -1;
+}
+
+//////////////////////////////////////////////////////////////
+//															//
+//					Using Stacks and Queues					//
+//															//
+//////////////////////////////////////////////////////////////
+
+L.Add(Q.Remove);		//Add 16 from Q to L
+L.Add(S.Pop);			//Add 1 from S to L
+L.Add(S.Pop);			//Add 6 from S to L
+L.Add(S.Pop);			//Add 3 from S to L
+Q.Add(S.Pop);			//Move 9 from S to Q
+Q.Add(S.Pop);			//Move 2 from S to Q
+L.Add(S.Pop);			//Move 8 from S to L
+L.Add(Q.Remove);		//Move 2 from Q to L
+S.Push(Q.Remove);		//Move 9 from Q to S
+L.Add(Q.Remove);		//Move 11 from Q to L (Q is now empty)
+L.Add(S.Pop);			//Move 9 from S to L (S is not empty)
+
+//////////////////////////////////////////////////////////////
+//															//
+//				List Based Stacks and Queues				//
+//															//
+//////////////////////////////////////////////////////////////
+
+Write a complete class implementation of a list based stack
+
+	#include <iostream>
+	
+	using namespace std;
+	
+	
+	struct Node {
+		int Data;
+		Node* Next;
+	};
+	
+	class Stack {
+	private:
+	///////////////////////////////////
+	
+		Node *Top;
+	
+	public:
+	///////////////////////////////////
+		Stack() {
+			Top = NULL;
+		}
+		bool empty() {
+			return Top == NULL;
+		}
+		
+		void push(int val) {
+			Node *Temp = new Node;
+			Temp->Data = val;
+			Temp->Next = NULL;
+			
+			if(Empty()) {
+				Top = Temp;
+			} else {
+				Temp->Next = Top;
+				Top = Temp;
+			}
+		}
+		
+		int pop() {
+			int TempData = Top->Data;
+			Node* TempNodePtr = Top;
+			Top = Top->Next;
+			delete TempNodePtr;
+			return TempData;
+		}
+		
+		void print() {
+			Node* Temp = Top;
+			
+			while(Temp) {
+				cout << Temp=>Data << "->";
+				Temp = Temp->Next;
+			}
+			cout << endl;
+		}
+	};
+	
+Write a complete class implementation of a list based queue.
+
+	#include <iostream>
+	
+	using namespace std;
+	
+	class Queue {
+	private:
+	////////////////////////////////////////
+	
+		Node* Front;
+		Node* Rear;
+		
+	public:
+	///////////////////////////////////////
+	
+		Queue() {
+			Front = Rear = NULL;
+		}
+		
+		bool Empty() {
+			return Front == NULL;
+		}
+		
+		void Push(int val) {
+			Node* Temp = new Node;
+			Temp->Data = val;
+			Temp->Next = NULL;
+			
+			if(Empty()) {
+				Front = Rear = Temp;
+			} else {
+				Rear->Next = Temp;
+				Rear = Temp;
+			}
+		}
+		
+		int Pop() {
+			int TempData = Front->Data;
+			Node* TempNodePtr = Front;
+			Front = Front->Next;
+			delete TempNodePtr;
+			return TempData;
+		}
+		
+		void Print() {
+			Node* Temp = Front;
+			
+			while(Temp) {
+				cout << Temp->Data << "->";
+				Temp = Temp->Next;
+			}
+			cout << endl;
+		}
+	};
+	
+	Array Vs. List
+		What are benefits of using an array based implementation?
+			- Easier to implement
+			- Can access elements of the array sequentially 
+				(allowing for binary search)
+	
+		What are benefits of using a list based implementation?
+			- Dynamic Size
+			- Easier insertion/deletion
+		
+		Explain why we need to implement a queue using the "circular"
+		technique when using an array, but not when using a list.
+			- List implementation is dynamic, meaning it can change the size
+				of the queue after deleting or inserting.
+				A non circular array based queue would run out of space,
+				and would be a costly operation to reallocate the appropriate
+				memory locations.
