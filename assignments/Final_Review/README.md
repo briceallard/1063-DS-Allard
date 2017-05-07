@@ -145,20 +145,20 @@ Node* MergeLists(Node* L1, Node* L2){
   Node* L3 = NULL;
   
   if(L1 == NULL)
-			return L2;
-		else if(L2 == NULL;
-			return L1;
+  	return L2;
+  else if(L2 == NULL;
+	return L1;
 			
-		if (lL1->data <= L2->data) {
-			L3 = L1;
-			lL3->next = mergeLists(L1->next, L2);
-		} else {
-			L3 = L2;
-			L3->next = mergeLists(L1,L2->next);
-		}
+  if (L1->data <= L2->data) {
+	L3 = L1;
+	L3->next = mergeLists(L1->next, L2);
+  } else {
+	L3 = L2;
+	L3->next = mergeLists(L1,L2->next); 
+  }
 		
-		return L3;		
-	}
+	return L3;		
+  }
 }
 ```
 -----
