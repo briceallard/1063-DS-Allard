@@ -1,4 +1,3 @@
-```cpp
 # Study Guide
 Final Exam: Monday May 8th, 3:30 p.m. - 5:30 p.m.
 
@@ -418,4 +417,3 @@ L.Add(S.Pop);			//Move 9 from S to L (S is not empty)
 				`A non circular array based queue would run out of space,` <br>
 				`and would be a costly operation to reallocate the appropriate` <br>
 				`memory locations.` <br>
-```
